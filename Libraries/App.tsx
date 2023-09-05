@@ -1,50 +1,70 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-import {
-  SafeAreaView,
-  StyleSheet,
-  Image
-} from 'react-native';
-
-import CapsuleButton from './Buttons/CapsuleButton/CapsuleButton';
+// Button Components
+import CapsuleButton from './Buttons/CapsuleButton';
+import ParallelogramButton from './Buttons/ParallelogramButton';
 
 function App(): JSX.Element {
 
   return (
-    <SafeAreaView >
-      <CapsuleButton  height={50} width={200} backgroundColor='pink' borderColor="purple" text='Hello World'
-  textStyle={{fontWeight:'500'}}
-  prefixIcon={<Image style={{backgroundColor:'purple', height:20, width:20, borderRadius:10}}/>}
-  suffixIcon={null}
-  padding={20} onPress={()=>console.log("capsule button clicked")} 
-  disable={false}/>
+    <SafeAreaView>
+      <View style={[styles.container]}>
+        {/* Heading */}
+        <Text style={[styles.title]}>Button Components</Text>
+        {/* Capsule Button Component */}
+        <CapsuleButton
+          height={60}
+          width={240}
+          backgroundColor='#33B8FF'
+          borderColor="#33B8FF"
+          borderWidth={2}
+          text="Capsule Button"
+          textColor='#FFFFFF'
+          textSize={18}
+          textWeight='600'
+          textTransform='capitalize'
+          prefixIcon='https://reactjs.org/logo-og.png'
+          suffixIcon='https://images.unsplash.com/photo-1526045612212-70caf35c14df'
+          onPress={() => console.log("capsule button clicked")}
+          isDisabled={false}
+        />
+        <View style={{ marginVertical: 16 }} />
+        {/* Parallelogram Button Component */}
+        <ParallelogramButton
+          height={60}
+          width={300}
+          backgroundColor='#FF618B'
+          borderColor="#FF618B"
+          borderWidth={2}
+          text="Parallelogram Button"
+          textColor='#FFFFFF'
+          textSize={18}
+          textWeight='600'
+          textTransform='capitalize'
+          prefixIcon='https://reactjs.org/logo-og.png'
+          suffixIcon='https://images.unsplash.com/photo-1526045612212-70caf35c14df'
+          onPress={() => console.log("parallelogram button clicked")}
+          isDisabled={false}
+        />
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%'
   },
-  sectionTitle: {
-    fontSize: 24,
+  title: {
+    fontSize: 20,
+    color: '#000000',
     fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+    margin: 32
   },
 });
 
