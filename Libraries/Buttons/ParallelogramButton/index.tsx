@@ -24,13 +24,15 @@ function ParallelogramButton(props: ParallelogramButtonnProps) {
         // Parallelogram Button
         <TouchableOpacity disabled={isDisabled} onPress={() => onPress ? onPress() : null}>
             {/* Button View */}
-            <View style={[styles.parallelogram, { width, height, backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor, borderColor: isDisabled ? 'none' : borderColor, borderWidth }]}>
+            <View style={[styles.parallelogram, { width, height, backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor, borderColor: isDisabled ? 'none' : borderColor, borderWidth , }]}>
+            <View style={{flex:1, flexDirection:'row', alignSelf:'center',alignItems: 'center',justifyContent:'center',transform: [{skewX: '20deg' }]}}>
                 {/* Prefix Icon */}
                 {prefixIcon ? <Image source={{ uri: prefixIcon, headers: { accept: '*/*' } }} style={[styles.icon]} /> : null}
                 {/* Button Text */}
                 <Text style={[styles.text, { color: textColor, fontSize: textSize, fontWeight: textWeight, textTransform }]}>{text}</Text>
                 {/* Suffix Icon */}
                 {suffixIcon ? <Image source={{ uri: suffixIcon, headers: { accept: '*/*' } }} style={[styles.icon]} /> : null}
+            </View>
             </View>
         </TouchableOpacity>
     );
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         transform: [{ skewX: '-20deg' }],
+     
     },
     text: {
         textAlign: 'center',
