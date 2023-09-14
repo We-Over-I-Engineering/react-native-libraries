@@ -1,25 +1,40 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import {
+  gradientEndDirections,
+  gradientStartDirections,
+} from '../../utils/Gradient';
 
-interface ParallelogramButtonnProps {
-  width?: number;
-  height?: number;
+interface ButtonProps {
   backgroundColor?: string;
+  borderRadius?: number;
   borderColor?: string;
   borderWidth?: number;
-  text?: string;
-  textColor?: string;
   textSize?: number;
   textWeight?: any;
-  textTransform?: any;
+  gradientDirection?:
+    | 'left'
+    | 'right'
+    | 'top'
+    | 'bottom'
+    | 'left-diagonal'
+    | 'right-diagonal';
+  gradientColors?: string[];
+  height?: number;
+  loaderColor?: string;
+  loading?: boolean;
   prefixIcon?: string;
   suffixIcon?: string;
+  text?: string;
+  textColor?: string;
+  textTransform?: any;
+  width?: number;
   onPress?: Function;
   isDisabled?: boolean;
-  tiltDirection?: 'left' | 'right';
 }
 
-function ParallelogramButton(props: ParallelogramButtonnProps) {
+function Button(props: ButtonProps) {
   const {
     width,
     height,
@@ -35,40 +50,70 @@ function ParallelogramButton(props: ParallelogramButtonnProps) {
     suffixIcon,
     onPress,
     isDisabled,
-    tiltDirection,
+    gradientDirection,
+    gradientColors,
   } = props;
   return (
-    // Parallelogram Button
     <TouchableOpacity
       disabled={isDisabled}
+      style={[
+        styles.button,
+        {
+          width,
+          height,
+          backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor,
+          borderColor: isDisabled ? 'none' : borderColor,
+          borderWidth,
+        },
+      ]}
       onPress={() => (onPress ? onPress() : null)}>
-      {/* Button View */}
-      <View
+      <LinearGradient
+        start={
+          gradientDirection
+            ? gradientStartDirections[gradientDirection]
+            : undefined
+        }
+        end={
+          gradientDirection
+            ? gradientEndDirections[gradientDirection]
+            : undefined
+        }
+        useAngle={
+          gradientDirection === 'left-diagonal' ||
+          gradientDirection === 'right-diagonal'
+            ? true
+            : false
+        }
+        angle={
+          gradientDirection
+            ? gradientDirection === 'left-diagonal'
+              ? 45
+              : 135
+            : undefined
+        }
+        angleCenter={gradientDirection ? {x: 0.5, y: 0.5} : undefined}
+        colors={
+          gradientColors
+            ? gradientColors
+            : ['rgba(0,0,0,0)', 'rgba(40,40,40,100)']
+        }
         style={[
-          styles.parallelogram,
+          styles.button,
           {
             width,
             height,
             backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor,
             borderColor: isDisabled ? 'none' : borderColor,
             borderWidth,
-            transform:
-              tiltDirection === 'left'
-                ? [{skewX: '25deg'}]
-                : [{skewX: '-20deg'}],
           },
         ]}>
+        {/* Button View */}
         <View
           style={{
-            flex: 1,
             flexDirection: 'row',
-            alignSelf: 'center',
+            justifyContent: 'space-evenly',
             alignItems: 'center',
-            justifyContent: 'center',
-            transform:
-              tiltDirection === 'left'
-                ? [{skewX: '-25deg'}]
-                : [{skewX: '20deg'}],
+            padding: 10,
           }}>
           {/* Prefix Icon */}
           {prefixIcon ? (
@@ -98,16 +143,17 @@ function ParallelogramButton(props: ParallelogramButtonnProps) {
             />
           ) : null}
         </View>
-      </View>
+      </LinearGradient>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  parallelogram: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+  button: {
+    display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 50,
   },
   text: {
     textAlign: 'center',
@@ -120,4 +166,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ParallelogramButton;
+export default Button;

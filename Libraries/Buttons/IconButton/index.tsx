@@ -1,51 +1,71 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-interface CircleButtonProps {
-  size?: number;
+interface IconButtonProps {
+  width?: number;
+  height?: number;
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
   text?: string;
   textColor?: string;
-  textTransform?: any;
   textSize?: number;
   textWeight?: any;
+  textTransform?: any;
+  prefixIcon?: string;
+  suffixIcon?: string;
   onPress?: Function;
   isDisabled?: boolean;
 }
 
-function CircleButton(props: CircleButtonProps) {
+function IconButton(props: IconButtonProps) {
   const {
-    size,
+    width,
+    height,
     backgroundColor,
     borderColor,
     borderWidth,
-    onPress,
-    isDisabled,
     text,
     textColor,
-    textTransform,
     textSize,
     textWeight,
+    textTransform,
+    prefixIcon,
+    suffixIcon,
+    onPress,
+    isDisabled,
   } = props;
   return (
-    // Circle Button
+    //Icon Button
     <TouchableOpacity
       disabled={isDisabled}
       style={[
         styles.button,
         {
-          width: size,
-          height: size,
-          borderRadius: size ? size / 2 : 0,
+          width,
+          height,
           backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor,
           borderColor: isDisabled ? 'none' : borderColor,
           borderWidth,
         },
       ]}
       onPress={() => (onPress ? onPress() : null)}>
-      {text ? (
+      {/* Button View */}
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+          padding: 10,
+        }}>
+        {/* Prefix Icon */}
+        {prefixIcon ? (
+          <Image
+            source={{uri: prefixIcon, headers: {accept: '*/*'}}}
+            style={[styles.icon]}
+          />
+        ) : null}
+        {/* Button Text */}
         <Text
           style={[
             styles.text,
@@ -58,7 +78,14 @@ function CircleButton(props: CircleButtonProps) {
           ]}>
           {text}
         </Text>
-      ) : null}
+        {/* Suffix Icon */}
+        {suffixIcon ? (
+          <Image
+            source={{uri: suffixIcon, headers: {accept: '*/*'}}}
+            style={[styles.icon]}
+          />
+        ) : null}
+      </View>
     </TouchableOpacity>
   );
 }
@@ -81,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CircleButton;
+export default IconButton;

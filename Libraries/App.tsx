@@ -4,10 +4,10 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 // Button Components
 import CapsuleButton from './Buttons/CapsuleButton';
 import ParallelogramButton from './Buttons/ParallelogramButton';
-import CircleButton from './Buttons/CircleButton';
 import RectangleButton from './Buttons/RectangleButton';
 import GradientButton from './Buttons/GradientButton';
 import LoaderButton from './Buttons/LoaderButton';
+import IconCircleButton from './Buttons/IconCircleButton';
 
 function App(): JSX.Element {
   return (
@@ -49,17 +49,8 @@ function App(): JSX.Element {
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
           onPress={() => console.log('parallelogram button clicked')}
           isDisabled={false}
+          tiltDirection="left"
         />
-        <View style={{marginVertical: 16}} />
-        {/* Capsule Button Component */}
-        <CircleButton
-          size={60}
-          backgroundColor="#33B8FF"
-          icon="https://reactjs.org/logo-og.png"
-          onPress={() => console.log('circle button clicked')}
-          isDisabled={false}
-        />
-
         <View style={{marginVertical: 16}} />
         {/* Rectangle Button Component */}
         <RectangleButton
@@ -93,6 +84,16 @@ function App(): JSX.Element {
           isDisabled={false}
           gradientColors={['pink', 'blue', 'purple']}
           gradientDirection={'right-diagonal'}
+        />
+
+        <View style={{marginVertical: 16}} />
+
+        <IconCircleButton
+          size={50}
+          backgroundColor="pink"
+          icon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+          onPress={() => console.log('Icon button clicked')}
+          isDisabled={false}
         />
 
         <View style={{marginVertical: 16}} />

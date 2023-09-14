@@ -47,7 +47,7 @@ function LoaderButton(props: LoaderButtonProps) {
     loadingIcon,
   } = props;
   return (
-    // Capsule Button
+    // Loader Button
     <TouchableOpacity
       disabled={isDisabled}
       style={[

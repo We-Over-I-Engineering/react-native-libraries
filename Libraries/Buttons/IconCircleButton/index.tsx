@@ -1,33 +1,25 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-interface CircleButtonProps {
+interface IconCircleButtonProps {
   size?: number;
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
-  text?: string;
-  textColor?: string;
-  textTransform?: any;
-  textSize?: number;
-  textWeight?: any;
+  icon?: string;
   onPress?: Function;
   isDisabled?: boolean;
 }
 
-function CircleButton(props: CircleButtonProps) {
+function IconCircleButton(props: IconCircleButtonProps) {
   const {
     size,
     backgroundColor,
     borderColor,
     borderWidth,
+    icon,
     onPress,
     isDisabled,
-    text,
-    textColor,
-    textTransform,
-    textSize,
-    textWeight,
   } = props;
   return (
     // Circle Button
@@ -45,19 +37,12 @@ function CircleButton(props: CircleButtonProps) {
         },
       ]}
       onPress={() => (onPress ? onPress() : null)}>
-      {text ? (
-        <Text
-          style={[
-            styles.text,
-            {
-              color: textColor,
-              fontSize: textSize,
-              fontWeight: textWeight,
-              textTransform,
-            },
-          ]}>
-          {text}
-        </Text>
+      {/* Icon */}
+      {icon ? (
+        <Image
+          source={{uri: icon, headers: {accept: '*/*'}}}
+          style={[styles.icon]}
+        />
       ) : null}
     </TouchableOpacity>
   );
@@ -81,4 +66,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CircleButton;
+export default IconCircleButton;

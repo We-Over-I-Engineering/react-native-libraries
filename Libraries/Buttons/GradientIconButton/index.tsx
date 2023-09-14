@@ -1,6 +1,10 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {
+  gradientEndDirections,
+  gradientStartDirections,
+} from '../../utils/Gradient';
 
 interface GradientIconButtonProps {
   width?: number;
@@ -46,24 +50,6 @@ function GradientIconButton(props: GradientIconButtonProps) {
     gradientDirection,
     gradientColors,
   } = props;
-
-  const gradientStartDirections = {
-    left: {x: 1, y: 0},
-    right: {x: 0, y: 0},
-    top: {x: 0, y: 1},
-    bottom: {x: 0, y: 0},
-    'left-diagonal': {x: 0.1, y: 0.1},
-    'right-diagonal': {x: 0, y: 0},
-  };
-
-  const gradientEndDirections = {
-    left: {x: 0, y: 0},
-    right: {x: 1, y: 0},
-    top: {x: 0, y: 0},
-    bottom: {x: 0, y: 1},
-    'left-diagonal': {x: 0, y: 0},
-    'right-diagonal': {x: 0, y: 0.5},
-  };
 
   return (
     // Gradient Button
