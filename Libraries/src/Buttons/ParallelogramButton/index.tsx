@@ -4,23 +4,17 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
   gradientEndDirections,
   gradientStartDirections,
-} from '../../utils/Gradient';
+} from '../../../utils/Gradient';
 
-interface GradientIconButtonProps {
+interface ParallelogramButtonnProps {
+  //button container style props
   width?: number;
   height?: number;
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
-  text?: string;
-  textColor?: string;
-  textSize?: number;
-  textWeight?: any;
-  textTransform?: any;
-  prefixIcon?: string;
-  suffixIcon?: string;
-  onPress?: Function;
-  isDisabled?: boolean;
+  //gradient props
+  gradientColors?: string[];
   gradientDirection?:
     | 'left'
     | 'right'
@@ -28,34 +22,69 @@ interface GradientIconButtonProps {
     | 'bottom'
     | 'left-diagonal'
     | 'right-diagonal';
-  gradientColors?: string[];
+  //button text style props
+  text?: string;
+  fontColor?: string;
+  fontSize?: number;
+  fontWeight?: any;
+  fontFamily?: string;
+  textTransform?: any;
+  //icons and style
+  prefixIcon?: any;
+  suffixIcon?: any;
+  iconSize?: number;
+  //button function
+  onPress: Function;
+  //button states
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  //shadows
+  elevation?: number;
+  //tilt
+  skew?: string;
+  skewType?: 'left' | 'right';
 }
 
-function GradientIconButton(props: GradientIconButtonProps) {
+function ParallelogramButton(props: ParallelogramButtonnProps) {
   const {
     width,
     height,
     backgroundColor,
     borderColor,
     borderWidth,
+    gradientColors,
+    gradientDirection,
     text,
-    textColor,
-    textSize,
-    textWeight,
+    fontColor,
+    fontSize,
+    fontWeight,
     textTransform,
     prefixIcon,
     suffixIcon,
     onPress,
     isDisabled,
-    gradientDirection,
-    gradientColors,
+    elevation,
+    skew,
+    skewType,
   } = props;
-
   return (
-    // Gradient Button
+    // Parallelogram Button
     <TouchableOpacity
       disabled={isDisabled}
+      style={{
+        shadowColor: elevation ? '#000' : undefined,
+        shadowOffset: elevation
+          ? {
+              width: 0,
+              height: elevation ? elevation / 2 : 0,
+            }
+          : undefined,
+        shadowOpacity: elevation ? 0.25 : undefined, // figure out wrf elevation
+        shadowRadius: elevation ? 4 : undefined, // figure out wrf elevation
+        elevation: elevation,
+      }}
       onPress={() => (onPress ? onPress() : null)}>
+      {/* Button View */}
       <LinearGradient
         start={
           gradientDirection
@@ -81,28 +110,34 @@ function GradientIconButton(props: GradientIconButtonProps) {
             : undefined
         }
         angleCenter={gradientDirection ? {x: 0.5, y: 0.5} : undefined}
-        colors={
-          gradientColors
-            ? gradientColors
-            : ['rgba(0,0,0,0)', 'rgba(40,40,40,100)']
-        }
+        colors={gradientColors ? gradientColors : ['transparent']}
         style={[
-          styles.button,
+          styles.parallelogram,
           {
             width,
             height,
-            backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor,
-            borderColor: isDisabled ? 'none' : borderColor,
+            borderColor,
             borderWidth,
+            backgroundColor,
+            transform: [
+              {
+                skewX: skewType === 'left' ? `${skew}deg` : `-${skew}deg`,
+              },
+            ],
           },
         ]}>
-        {/* Button View */}
         <View
           style={{
+            flex: 1,
             flexDirection: 'row',
-            justifyContent: 'space-evenly',
+            alignSelf: 'center',
             alignItems: 'center',
-            padding: 10,
+            justifyContent: 'center',
+            transform: [
+              {
+                skewX: skewType === 'left' ? `-${skew}deg` : `${skew}deg`,
+              },
+            ],
           }}>
           {/* Prefix Icon */}
           {prefixIcon ? (
@@ -116,9 +151,9 @@ function GradientIconButton(props: GradientIconButtonProps) {
             style={[
               styles.text,
               {
-                color: textColor,
-                fontSize: textSize,
-                fontWeight: textWeight,
+                color: fontColor,
+                fontSize: fontSize,
+                fontWeight: fontWeight,
                 textTransform,
               },
             ]}>
@@ -138,13 +173,10 @@ function GradientIconButton(props: GradientIconButtonProps) {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    display: 'flex',
-    justifyContent: 'center',
+  parallelogram: {
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    borderRadius: 50,
   },
-  gradient: {},
   text: {
     textAlign: 'center',
     marginHorizontal: 12,
@@ -156,4 +188,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GradientIconButton;
+export default ParallelogramButton;

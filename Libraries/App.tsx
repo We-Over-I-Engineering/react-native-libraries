@@ -2,35 +2,32 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 // Button Components
-import CapsuleButton from './Buttons/CapsuleButton';
-import ParallelogramButton from './Buttons/ParallelogramButton';
-import RectangleButton from './Buttons/RectangleButton';
-import GradientButton from './Buttons/GradientButton';
-import LoaderButton from './Buttons/LoaderButton';
-import IconCircleButton from './Buttons/IconCircleButton';
-
+import TextButton from './src/Buttons/TextButton';
+import ParallelogramButton from './src/Buttons/ParallelogramButton';
+import IconButton from './src/Buttons/IconButton';
 function App(): JSX.Element {
   return (
     <SafeAreaView>
       <View style={[styles.container]}>
         {/* Heading */}
         <Text style={[styles.title]}>Button Components</Text>
-        {/* Capsule Button Component */}
-        <CapsuleButton
+        <View style={{marginVertical: 16}} />
+        {/* Text Button Component */}
+        <TextButton
           height={60}
           width={240}
-          backgroundColor="#33B8FF"
-          borderColor="#33B8FF"
-          borderWidth={2}
-          text="Capsule Button"
-          textColor="#FFFFFF"
-          textSize={18}
-          textWeight="600"
+          borderRadius={16}
+          text="Text Button"
+          fontColor="#FFFFFF"
+          fontSize={18}
+          fontWeight="600"
           textTransform="capitalize"
           prefixIcon="https://reactjs.org/logo-og.png"
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
-          onPress={() => console.log('capsule button clicked')}
+          onPress={() => console.log('text button clicked')}
           isDisabled={false}
+          backgroundColor="blue"
+          elevation={10}
         />
         <View style={{marginVertical: 16}} />
         {/* Parallelogram Button Component */}
@@ -38,78 +35,32 @@ function App(): JSX.Element {
           height={60}
           width={300}
           backgroundColor="#FF618B"
-          borderColor="#FF618B"
-          borderWidth={2}
           text="Parallelogram Button"
-          textColor="#FFFFFF"
-          textSize={18}
-          textWeight="600"
+          fontColor="#FFFFFF"
+          fontSize={18}
+          fontWeight="600"
           textTransform="capitalize"
           prefixIcon="https://reactjs.org/logo-og.png"
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
           onPress={() => console.log('parallelogram button clicked')}
           isDisabled={false}
-          tiltDirection="left"
+          skew="25"
+          skewType="right"
+          elevation={10}
+          gradientColors={['pink', 'purple', 'blue']}
         />
         <View style={{marginVertical: 16}} />
-        {/* Rectangle Button Component */}
-        <RectangleButton
-          height={60}
-          width={240}
-          backgroundColor="#33B8FF"
-          borderColor="#33B8FF"
-          borderWidth={2}
-          borderRadius={16}
-          text="Rectangle Button"
-          textColor="#FFFFFF"
-          textSize={18}
-          textWeight="600"
-          textTransform="capitalize"
-          prefixIcon="https://reactjs.org/logo-og.png"
-          suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
-          onPress={() => console.log('rectangle button clicked')}
-          isDisabled={false}
-        />
-
-        <View style={{marginVertical: 16}} />
-        <GradientButton
-          height={60}
-          width={240}
-          text="Gradient Button"
-          textColor="#FFFFFF"
-          textSize={18}
-          textWeight="600"
-          textTransform="capitalize"
-          onPress={() => console.log('Gradient button clicked')}
-          isDisabled={false}
-          gradientColors={['pink', 'blue', 'purple']}
-          gradientDirection={'right-diagonal'}
-        />
-
-        <View style={{marginVertical: 16}} />
-
-        <IconCircleButton
+        {/* Icon Button Component */}
+        <IconButton
           size={50}
           backgroundColor="pink"
           icon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+          iconSize={20}
+          iconBorderRadius={10}
+          borderRadius={25}
           onPress={() => console.log('Icon button clicked')}
           isDisabled={false}
-        />
-
-        <View style={{marginVertical: 16}} />
-        <LoaderButton
-          height={60}
-          width={240}
-          text="Loader Button"
-          textColor="#000"
-          textSize={18}
-          textWeight="600"
-          textTransform="capitalize"
-          onPress={() => console.log('Gradient button clicked')}
-          isDisabled={false}
-          loading={true}
-          loaderColor="#ffff"
-          backgroundColor="green"
+          elevation={10}
         />
       </View>
     </SafeAreaView>

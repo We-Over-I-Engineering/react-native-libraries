@@ -4,21 +4,18 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
   gradientEndDirections,
   gradientStartDirections,
-} from '../../utils/Gradient';
+} from '../../../utils/Gradient';
 
-interface GradientButtonProps {
+interface TextButtonProps {
+  //button container style props
   width?: number;
   height?: number;
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
-  text?: string;
-  textColor?: string;
-  textSize?: number;
-  textWeight?: any;
-  textTransform?: any;
-  onPress?: Function;
-  isDisabled?: boolean;
+  borderRadius?: number;
+  //gradient props
+  gradientColors?: string[];
   gradientDirection?:
     | 'left'
     | 'right'
@@ -26,32 +23,66 @@ interface GradientButtonProps {
     | 'bottom'
     | 'left-diagonal'
     | 'right-diagonal';
-  gradientColors?: string[];
+  //button text style props
+  text?: string;
+  fontColor?: string;
+  fontSize?: number;
+  fontWeight?: any;
+  fontFamily?: string;
+  textTransform?: any;
+  //icons and style
+  prefixIcon?: any;
+  suffixIcon?: any;
+  iconSize?: number;
+  //button function
+  onPress?: Function;
+  //button states
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  //shadows
+  elevation?: number;
 }
 
-function GradientButton(props: GradientButtonProps) {
+function TextButton(props: TextButtonProps) {
   const {
     width,
     height,
     backgroundColor,
     borderColor,
+    borderRadius,
     borderWidth,
+    gradientColors,
+    gradientDirection,
     text,
-    textColor,
-    textSize,
-    textWeight,
+    fontColor,
+    fontSize,
+    fontWeight,
     textTransform,
+    prefixIcon,
+    suffixIcon,
     onPress,
     isDisabled,
-    gradientDirection,
-    gradientColors,
+    elevation,
   } = props;
-
   return (
-    // Gradient Button
+    // Text Button
     <TouchableOpacity
       disabled={isDisabled}
+      style={{
+        backgroundColor,
+        shadowColor: elevation ? '#000' : undefined,
+        shadowOffset: elevation
+          ? {
+              width: 0,
+              height: elevation ? elevation / 2 : 0,
+            }
+          : undefined,
+        shadowOpacity: elevation ? 0.25 : undefined, // figure out wrf elevation
+        shadowRadius: elevation ? 4 : undefined, // figure out wrf elevation
+        elevation: elevation,
+      }}
       onPress={() => (onPress ? onPress() : null)}>
+      {/* Button View */}
       <LinearGradient
         start={
           gradientDirection
@@ -77,22 +108,18 @@ function GradientButton(props: GradientButtonProps) {
             : undefined
         }
         angleCenter={gradientDirection ? {x: 0.5, y: 0.5} : undefined}
-        colors={
-          gradientColors
-            ? gradientColors
-            : ['rgba(0,0,0,0)', 'rgba(40,40,40,100)']
-        }
+        colors={gradientColors ? gradientColors : ['transparent']}
         style={[
           styles.button,
           {
             width,
             height,
-            backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor,
-            borderColor: isDisabled ? 'none' : borderColor,
+            backgroundColor,
+            borderColor,
             borderWidth,
+            borderRadius: borderRadius ? borderRadius : 0,
           },
         ]}>
-        {/* Button View */}
         <View
           style={{
             flexDirection: 'row',
@@ -100,19 +127,33 @@ function GradientButton(props: GradientButtonProps) {
             alignItems: 'center',
             padding: 10,
           }}>
+          {/* Prefix Icon */}
+          {prefixIcon ? (
+            <Image
+              source={{uri: prefixIcon, headers: {accept: '*/*'}}}
+              style={[styles.icon]}
+            />
+          ) : null}
           {/* Button Text */}
           <Text
             style={[
               styles.text,
               {
-                color: textColor,
-                fontSize: textSize,
-                fontWeight: textWeight,
+                color: fontColor,
+                fontSize: fontSize,
+                fontWeight: fontWeight,
                 textTransform,
               },
             ]}>
             {text}
           </Text>
+          {/* Suffix Icon */}
+          {suffixIcon ? (
+            <Image
+              source={{uri: suffixIcon, headers: {accept: '*/*'}}}
+              style={[styles.icon]}
+            />
+          ) : null}
         </View>
       </LinearGradient>
     </TouchableOpacity>
@@ -124,9 +165,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 50,
+    backgroundColor: '#fff',
   },
-  gradient: {},
   text: {
     textAlign: 'center',
     marginHorizontal: 12,
@@ -138,4 +178,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GradientButton;
+export default TextButton;
