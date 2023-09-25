@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
   gradientEndDirections,
   gradientStartDirections,
-} from '../../utils/Gradient';
+} from '../../utils/gradients';
 
 interface WOIParallelogramButtonnProps {
   //button container style props
