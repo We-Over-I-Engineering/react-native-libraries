@@ -47,7 +47,7 @@ to start project on android  or ios
 
 ## **Authors**
 
-- **Alliya Fatima** - [Usman Wadood](https://github.com/alliya-f)
+- **Alliya Fatima** - [Alliya Fatima](https://github.com/alliya-f)
 - **Muhammad Farooq** - [Muhammad Farooq](https://github.com/hafizmuhammadfarooq786)
 
 ## **Contact**
