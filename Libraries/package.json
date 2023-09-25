@@ -1,7 +1,6 @@
 {
   "name": "woi-react-native-components",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.6",
   "description": "React Native components developed by highly talented team at We Over I.",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
@@ -17,7 +16,7 @@
     "start": "react-native start",
     "test": "jest",
     "build": "rm -rf ./lib/* && tsc",
-    "pre": "rm ./lib/* && tsc && npm version patch"
+    "pre": "rm -rf ./lib/* && tsc && npm version patch"
   },
   "dependencies": {
     "react": "18.2.0",

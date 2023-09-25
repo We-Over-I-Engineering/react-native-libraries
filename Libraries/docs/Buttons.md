@@ -17,7 +17,11 @@ We Over I button components are reusable React native components for creating in
 ## **Getting Started**
 
 ```js
-import {WOITextButton, WOIIconButton, WOIParallelogramButton} from "woi-react-native-buttons/buttons"
+import {
+  WOITextButton,
+  WOIIconButton,
+  WOIParallelogramButton,
+} from 'woi-react-native-components';
 ```
 
 ### WOI Text Button
@@ -49,39 +53,41 @@ WOI Text Button component accepts the following props:
 | elevation         | Number   |
 
 ### **Usage**
+
 ```js
-import {WOITextButton} from "woi-react-native-buttons/buttons";
+import {WOITextButton} from 'woi-react-native-components';
 
 const textButtonWidget = () => {
-    <WOITextButton
-        width={250}
-        height={50}
-        backgroundColor="#e64178"
-        borderColor="#ffffff"
-        borderWidth={3}
-        borderRadius={20}
-        gradientColors={['purple','yellow']}
-        gradientDirection="left"
-        text="WOI Text Button"
-        fontColor="#ffffff"
-        fontSize={16}
-        fontWeight={400}
-        fontFamily="Roboto"
-        textTransform="capitalize"
-        prefixIcon="https://cdn-icons-png.flaticon.com/512/271/271220.png"
-        suffixIcon="https://cdn-icons-png.flaticon.com/512/32/32213.png"
-        iconSize={400}
-        onPress={() => console.log("On Press called")}
-        isDisabled={false}
-        isLoading={false}
-        elevation={8}
-    />
+  <WOITextButton
+    width={250}
+    height={50}
+    backgroundColor="#e64178"
+    borderColor="#ffffff"
+    borderWidth={3}
+    borderRadius={20}
+    gradientColors={['purple', 'yellow']}
+    gradientDirection="left"
+    text="WOI Text Button"
+    fontColor="#ffffff"
+    fontSize={16}
+    fontWeight={400}
+    fontFamily="Roboto"
+    textTransform="capitalize"
+    prefixIcon="https://cdn-icons-png.flaticon.com/512/271/271220.png"
+    suffixIcon="https://cdn-icons-png.flaticon.com/512/32/32213.png"
+    iconSize={400}
+    onPress={() => console.log('On Press called')}
+    isDisabled={false}
+    isLoading={false}
+    elevation={8}
+  />;
 };
 ```
+
 ### WOI Icon Button
 
 WOI Icon Button component accepts the following props:
-       
+
 | Props            | Type     |
 | ---------------- | -------- |
 | size             | String   |
@@ -98,26 +104,28 @@ WOI Icon Button component accepts the following props:
 | isDisabled       | Boolean  |
 
 ### **Icon Button Usage**
+
 ```js
-import {WOIIconButton} from "woi-react-native-buttons/buttons";
+import {WOIIconButton} from 'woi-react-native-components';
 
 const iconButtonWidget = () => {
-    <WOIIconButton
-        size={50}
-        backgroundColor="#FFFFFF"
-        borderColor="#007DFF"
-        borderWidth={3}
-        borderRadius={100}
-        elevation={8}
-        icon="https://www.pngmart.com/files/15/Circle-Facebook-Logo-PNG-Pic.png"
-        iconColor="#FFFFFF"
-        iconsSize={32}
-        iconBorderRadius={8}
-        onPress={() => console.log("On Press called")}
-        isDisabled={false}
-    />
+  <WOIIconButton
+    size={50}
+    backgroundColor="#FFFFFF"
+    borderColor="#007DFF"
+    borderWidth={3}
+    borderRadius={100}
+    elevation={8}
+    icon="https://www.pngmart.com/files/15/Circle-Facebook-Logo-PNG-Pic.png"
+    iconColor="#FFFFFF"
+    iconsSize={32}
+    iconBorderRadius={8}
+    onPress={() => console.log('On Press called')}
+    isDisabled={false}
+  />;
 };
 ```
+
 ### WOI Parallelogram Button
 
 WOI Parallelogram Button component accepts the following props:
@@ -147,36 +155,36 @@ WOI Parallelogram Button component accepts the following props:
 | skewType          | String   |
 | skew              | String   |
 
-
 ### **Parallelogram Button Usage**
+
 ```js
-import {WOIParallelogramButton} from "woi-react-native-buttons/buttons";
+import {WOIParallelogramButton} from 'woi-react-native-components';
 
 const parallelogramButtonWidget = () => {
-    <WOIParallelogramButton
-        width={250}
-        height={50}
-        backgroundColor="#e64178"
-        borderColor="#e64178"
-        borderThickness={3}
-        borderRadius={20}
-        gradientColors={['purple','yellow']}
-        gradientDirection="left"
-        text="WOI Text Button"
-        fontColor="#ffffff"
-        fontSize={16}
-        fontWeight={400}
-        fontFamily="Roboto"
-        textTransform="capitalize"
-        prefixIcon="https://cdn-icons-png.flaticon.com/512/271/271220.png"
-        suffixIcon="https://cdn-icons-png.flaticon.com/512/32/32213.png"
-        iconSize={16}
-        onPress={() => console.log("On Press called")}
-        isDisabled={true}
-        isLoading={false}
-        elevation={8}
-        skewType="left"
-        skew="20px"
-    />
+  <WOIParallelogramButton
+    width={250}
+    height={50}
+    backgroundColor="#e64178"
+    borderColor="#e64178"
+    borderThickness={3}
+    borderRadius={20}
+    gradientColors={['purple', 'yellow']}
+    gradientDirection="left"
+    text="WOI Text Button"
+    fontColor="#ffffff"
+    fontSize={16}
+    fontWeight={400}
+    fontFamily="Roboto"
+    textTransform="capitalize"
+    prefixIcon="https://cdn-icons-png.flaticon.com/512/271/271220.png"
+    suffixIcon="https://cdn-icons-png.flaticon.com/512/32/32213.png"
+    iconSize={16}
+    onPress={() => console.log('On Press called')}
+    isDisabled={true}
+    isLoading={false}
+    elevation={8}
+    skewType="left"
+    skew="20px"
+  />;
 };
 ```

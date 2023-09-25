@@ -2,9 +2,9 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 // Button Components
-import WOITextButton from './src/Buttons/WOITextButton';
-import WOIParallelogramButton from './src/Buttons/WOIParallelogramButton';
-import WOIIconButton from './src/Buttons/WOIIconButton';
+import WOITextButton from './src/buttons/WOITextButton';
+import WOIParallelogramButton from './src/buttons/WOIParallelogramButton';
+import WOIIconButton from './src/buttons/WOIIconButton';
 function App(): JSX.Element {
   return (
     <SafeAreaView>
