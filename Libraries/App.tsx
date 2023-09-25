@@ -1,10 +1,10 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 // Button Components
-import TextButton from './src/Buttons/TextButton';
-import ParallelogramButton from './src/Buttons/ParallelogramButton';
 import IconButton from './src/Buttons/IconButton';
+import TextButton from './src/Buttons/TextButton';
+import ParallelogramButton from './src/Buttons/WOIParallelogramButton';
 function App(): JSX.Element {
   return (
     <SafeAreaView>
