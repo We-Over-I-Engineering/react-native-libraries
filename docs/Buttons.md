@@ -11,13 +11,13 @@ We Over I button components are reusable React native components for creating in
     - [**Usage**](#usage)
     - [WOI Icon Button](#woi-icon-button)
     - [**Icon Button Usage**](#icon-button-usage)
-    - [WOI Paralellogram Button](#woi-paralellogram-button)
-    - [**Paralellogram Button Usage**](#paralellogram-button-usage)
+    - [WOI Parallelogram Button](#woi-parallelogram-button)
+    - [**Parallelogram Button Usage**](#parallelogram-button-usage)
 
 ## **Getting Started**
 
 ```js
-import {WOITextButton, WOIIconButton, WOIParalellogramButton} from "woi-react-native-buttons/buttons"
+import {WOITextButton, WOIIconButton, WOIParallelogramButton} from "woi-react-native-buttons/buttons"
 ```
 
 ### WOI Text Button
@@ -118,9 +118,9 @@ const iconButtonWidget = () => {
     />
 };
 ```
-### WOI Paralellogram Button
+### WOI Parallelogram Button
 
-WOI Paralellogram Button component accepts the following props:
+WOI Parallelogram Button component accepts the following props:
 
 | Props             | Type     |
 | ----------------- | -------- |
@@ -148,12 +148,12 @@ WOI Paralellogram Button component accepts the following props:
 | skew              | String   |
 
 
-### **Paralellogram Button Usage**
+### **Parallelogram Button Usage**
 ```js
-import {WOIParalellogramButton} from "woi-react-native-buttons/buttons";
+import {WOIParallelogramButton} from "woi-react-native-buttons/buttons";
 
-const paralellogramButtonWidget = () => {
-    <WOIParalellogramButton
+const parallelogramButtonWidget = () => {
+    <WOIParallelogramButton
         width={250}
         height={50}
         backgroundColor="#e64178"
