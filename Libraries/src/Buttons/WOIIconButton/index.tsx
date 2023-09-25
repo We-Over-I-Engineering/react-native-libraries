@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-interface IconButtonProps {
+interface WOIIconButtonProps {
   size?: number;
   backgroundColor?: string;
   borderColor?: string;
@@ -16,7 +16,7 @@ interface IconButtonProps {
   isDisabled?: boolean;
 }
 
-function IconButton(props: IconButtonProps) {
+function WOIIconButton(props: WOIIconButtonProps) {
   const {
     size,
     backgroundColor,
@@ -39,9 +39,9 @@ function IconButton(props: IconButtonProps) {
           width: size,
           height: size,
           borderRadius: borderRadius,
-          backgroundColor: isDisabled ? '#D9D9D9' : backgroundColor,
-          borderColor: isDisabled ? 'none' : borderColor,
+          borderColor,
           borderWidth,
+          backgroundColor,
           shadowColor: elevation ? '#000' : undefined,
           shadowOffset: elevation
             ? {
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IconButton;
+export default WOIIconButton;

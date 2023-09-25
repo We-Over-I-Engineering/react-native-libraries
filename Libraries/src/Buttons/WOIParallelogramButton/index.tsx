@@ -4,9 +4,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
   gradientEndDirections,
   gradientStartDirections,
-} from '../../../utils/Gradient';
+} from '../../utils/Gradient';
 
-interface ParallelogramButtonnProps {
+interface WOIParallelogramButtonnProps {
   //button container style props
   width?: number;
   height?: number;
@@ -45,7 +45,7 @@ interface ParallelogramButtonnProps {
   skewType?: 'left' | 'right';
 }
 
-function ParallelogramButton(props: ParallelogramButtonnProps) {
+function WOIParallelogramButton(props: WOIParallelogramButtonnProps) {
   const {
     width,
     height,
@@ -188,4 +188,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ParallelogramButton;
+export default WOIParallelogramButton;

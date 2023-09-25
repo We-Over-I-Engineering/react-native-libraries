@@ -1,3 +1,3 @@
-export {default as TextButton} from './TextButton';
-export {default as ParallelogramButton} from './ParallelogramButton';
-export {default as IconButton} from './IconButton';
+export {default as WOITextButton} from './WOITextButton';
+export {default as WOIParallelogramButton} from './WOIParallelogramButton';
+export {default as WOIIconButton} from './WOIIconButton';

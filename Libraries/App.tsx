@@ -2,9 +2,9 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 // Button Components
-import TextButton from './src/Buttons/TextButton';
-import ParallelogramButton from './src/Buttons/ParallelogramButton';
-import IconButton from './src/Buttons/IconButton';
+import WOITextButton from './src/Buttons/WOITextButton';
+import WOIParallelogramButton from './src/Buttons/WOIParallelogramButton';
+import WOIIconButton from './src/Buttons/WOIIconButton';
 function App(): JSX.Element {
   return (
     <SafeAreaView>
@@ -13,7 +13,7 @@ function App(): JSX.Element {
         <Text style={[styles.title]}>Button Components</Text>
         <View style={{marginVertical: 16}} />
         {/* Text Button Component */}
-        <TextButton
+        <WOITextButton
           height={60}
           width={240}
           borderRadius={16}
@@ -31,7 +31,7 @@ function App(): JSX.Element {
         />
         <View style={{marginVertical: 16}} />
         {/* Parallelogram Button Component */}
-        <ParallelogramButton
+        <WOIParallelogramButton
           height={60}
           width={300}
           backgroundColor="#FF618B"
@@ -51,7 +51,7 @@ function App(): JSX.Element {
         />
         <View style={{marginVertical: 16}} />
         {/* Icon Button Component */}
-        <IconButton
+        <WOIIconButton
           size={50}
           backgroundColor="pink"
           icon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"

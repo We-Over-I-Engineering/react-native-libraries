@@ -4,9 +4,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
   gradientEndDirections,
   gradientStartDirections,
-} from '../../../utils/Gradient';
+} from '../../utils/Gradient';
 
-interface TextButtonProps {
+interface WOITextButtonProps {
   //button container style props
   width?: number;
   height?: number;
@@ -43,7 +43,7 @@ interface TextButtonProps {
   elevation?: number;
 }
 
-function TextButton(props: TextButtonProps) {
+function WOITextButton(props: WOITextButtonProps) {
   const {
     width,
     height,
@@ -178,4 +178,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TextButton;
+export default WOITextButton;
