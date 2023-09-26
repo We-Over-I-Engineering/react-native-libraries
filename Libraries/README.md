@@ -16,7 +16,7 @@ v18.17.1
 ## Installation
 
 ```sh
-$ npm install --save woi-react-native-components
+$ npm install woi-react-native-components react-native-linear-gradient
 ```
 
 ## Documentation

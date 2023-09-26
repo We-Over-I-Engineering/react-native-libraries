@@ -9,6 +9,18 @@
   "files": [
     "lib"
   ],
+  "keywords": [
+    "react native",
+    "typescript",
+    "styled-components",
+    "woi-buttons",
+    "buttons",
+    "react-native-buttons",
+    "animated-button",
+    "gradient-button",
+    "icon-button",
+    "outline-button"
+  ],
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -52,5 +64,4 @@
   "engines": {
     "node": ">=16"
   }
- 
 }
