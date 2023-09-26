@@ -22,7 +22,7 @@ $ npm install woi-react-native-components react-native-linear-gradient
 ## Documentation
 
 - 📒 [Components](#components)
-  - [Buttons](https://github.com/We-Over-I-Engineering/react-native-libraries/blob/main/docs/Buttons.md): WOI Button components.
+  - [Buttons](https://github.com/We-Over-I-Engineering/react-native-libraries/blob/main/Libraries/docs/Buttons.md): WOI Button components.
 - 👏 [Contributing](#contributing)
   - 👨‍💻 [Development scripts](#development-scripts)
 - :memo: [License](#license)
