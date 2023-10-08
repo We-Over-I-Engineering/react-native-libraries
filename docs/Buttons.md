@@ -13,6 +13,12 @@ We Over I button components are reusable React native components for creating in
     - [**Icon Button Usage**](#icon-button-usage)
     - [WOI Parallelogram Button](#woi-parallelogram-button)
     - [**Parallelogram Button Usage**](#parallelogram-button-usage)
+    - [WOI CheckBox](#woi-checkbox)
+    - [**Checkbox Usage**](#checkbox-usage)
+    - [WOI Radio Button](#woi-radio-button)
+    - [**Radio Button Usage**](#radio-button-usage)
+    - [WOI Switch Button](#woi-switch-button)
+    - [**Switch Button Usage**](#switch-button-usage)
 
 ## **Getting Started**
 
@@ -185,6 +191,128 @@ const parallelogramButtonWidget = () => {
     elevation={8}
     skewType="left"
     skew="20px"
+  />;
+};
+```
+
+### WOI CheckBox
+
+WOI CheckBox component accepts the following props:
+
+
+| Props                   | Type     |
+| ----------------------- | -------- |
+| size                    | Number   |
+| borderRadius            | Number   |
+| borderWidth             | Number   |
+| activeBorderColor       | String   |
+| inActiveBorderColor     | String   |
+| activeBackgroundColor   | String   |
+| inActiveBackgroundColor | String   |
+| icon                    | String   |
+| iconSize                | Number   |
+| isChecked               | Boolean  |
+| onPress                 | Function |
+
+
+### **Checkbox Usage**
+
+```js
+import {WOICheckBox} from 'woi-react-native-components';
+
+const WOICheckBoxWidget = () => {
+  <WOICheckBox
+    size={32}
+    borderRadius={8}
+    borderWidth={3}
+    activeBorderColor="#33B8FF"
+    inActiveBorderColor ="#D3D3D3"
+    activeBackgroundColor="#FFFFFF"
+    inActiveBackgroundColor= "#FFFFFF"
+    icon= "https://cdn-icons-png.flaticon.com/512/3106/3106690.png"
+    iconSize={36}
+    isChecked={false}
+  />;
+};
+```
+
+### WOI Radio Button
+
+WOI Radio Button component accepts the following props:
+
+
+| Props               | Type     |
+| ------------------- | -------- |
+| size                | Number   |
+| borderWidth         | Number   |
+| activeBorderColor   | String   |
+| inActiveBorderColor | String   |
+| activeColor         | String   |
+| inActiveColor       | String   |
+| isSelected          | Boolean  |
+| onPress             | Function |
+
+
+### **Radio Button Usage**
+
+```js
+import {WOIRadioButton} from 'woi-react-native-components';
+
+const WOIRadioButtonWidget = () => {
+  <WOIRadioButton
+    size={24}
+    activeBorderColor="#33B8FF"
+    inActiveBorderColor= "#D3D3D3"
+    borderWidth={2}
+    activeColor="#33B8FF"
+    inActiveColor="#D3D3D3"
+    isSelected={false}
+  />;
+};
+```
+
+### WOI Switch Button
+
+WOI Switch Button component accepts the following props:
+
+
+| Props               | Type     |
+| ------------------- | -------- |
+| size                | Number   |
+| borderWidth         | Number   |
+| activeBorderColor   | String   |
+| inActiveBorderColor | String   |
+| activeColor         | String   |
+| inActiveColor       | String   |
+| isSelected          | Boolean  |
+| onPress             | Function |
+
+
+### **Switch Button Usage**
+
+```js
+import {WOISwitchButton} from 'woi-react-native-components';
+
+const WOISwitchButtonWidget = () => {
+  <WOISwitchButton
+    trackWidth={60}
+    trackHeight={24}
+    padding={4}
+    trackBorderRadius={50}
+    trackBorderColor="#33B8FF"
+    trackBorderWidth={2}
+    trackActiveColor="#33B8FF"
+    trackInActiveColor="#D3D3D3"
+    thumbSize={24}
+    thumbBorderRadius={50}
+    thumbBorderColor="#FFFFFF"
+    thumbBorderWidth={2}
+    thumbActiveColor="#FFFFFF"
+    thumbInActiveColor="#D3D3D3"
+    isActive={false}
+    thumbActiveIcon="https://cdn-icons-png.flaticon.com/512/1400/1400310.png"
+    thumbInActiveIcon="https://cdn-icons-png.flaticon.com/512/4445/4445942.png"
+    thumbIconSize={20}
   />;
 };
 ```
