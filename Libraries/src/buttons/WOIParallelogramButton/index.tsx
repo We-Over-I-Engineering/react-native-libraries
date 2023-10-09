@@ -38,9 +38,7 @@ interface WOIParallelogramButtonnProps {
   //shadows
   elevation?: number;
   //tilt
-  skew?: string;
-  skewType?: 'left' | 'right';
-  tiltDirection?: 'left' | 'right' | 'up' | 'down';
+  tiltDirection?: 'left' | 'right';
 }
 
 const WOIParallelogramButton = (props: WOIParallelogramButtonnProps) => {
@@ -78,10 +76,9 @@ const WOIParallelogramButton = (props: WOIParallelogramButtonnProps) => {
                 height: elevation ? elevation / 2 : 0,
               }
             : undefined,
-          shadowOpacity: elevation ? 0.25 : undefined, // figure out wrf elevation
-          shadowRadius: elevation ? 4 : undefined, // figure out wrf elevation
-          elevation,
-          //   backgroundColor: 'purple',
+          shadowOpacity: elevation ? 0.25 : undefined,
+          shadowRadius: elevation ? 4 : undefined,
+          elevation: elevation,
           alignItems: 'center',
           alignContent: 'center',
           justifyContent: 'center',
