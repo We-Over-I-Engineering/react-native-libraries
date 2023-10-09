@@ -158,8 +158,7 @@ WOI Parallelogram Button component accepts the following props:
 | isDisabled        | Boolean  |
 | isLoading         | Boolean  |
 | elevation         | Number   |
-| skewType          | String   |
-| skew              | String   |
+| tiltDirection     | String   |
 
 ### **Parallelogram Button Usage**
 
@@ -176,7 +175,7 @@ const parallelogramButtonWidget = () => {
     borderRadius={20}
     gradientColors={['purple', 'yellow']}
     gradientDirection="left"
-    text="WOI Text Button"
+    text="WOI Parallelogram Button"
     fontColor="#ffffff"
     fontSize={16}
     fontWeight={400}
@@ -189,8 +188,7 @@ const parallelogramButtonWidget = () => {
     isDisabled={true}
     isLoading={false}
     elevation={8}
-    skewType="left"
-    skew="20px"
+    tiltDirection="left"
   />;
 };
 ```

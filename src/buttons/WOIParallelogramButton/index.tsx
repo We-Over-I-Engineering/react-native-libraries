@@ -1,10 +1,7 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import {
-  gradientEndDirections,
-  gradientStartDirections,
-} from '../../utils/gradients';
+import {View, TouchableOpacity, Text, StyleSheet, Image} from 'react-native';
+import Svg, {Polygon, Defs, LinearGradient, Stop} from 'react-native-svg';
+import {gradientDirections} from '../../utils/gradients';
 
 interface WOIParallelogramButtonnProps {
   //button container style props
@@ -41,11 +38,10 @@ interface WOIParallelogramButtonnProps {
   //shadows
   elevation?: number;
   //tilt
-  skew?: string;
-  skewType?: 'left' | 'right';
+  tiltDirection?: 'left' | 'right';
 }
 
-function WOIParallelogramButton(props: WOIParallelogramButtonnProps) {
+const WOIParallelogramButton = (props: WOIParallelogramButtonnProps) => {
   const {
     width,
     height,
@@ -64,81 +60,58 @@ function WOIParallelogramButton(props: WOIParallelogramButtonnProps) {
     onPress,
     isDisabled,
     elevation,
-    skew,
-    skewType,
+    tiltDirection,
   } = props;
+
   return (
-    // Parallelogram Button
-    <TouchableOpacity
-      disabled={isDisabled}
-      style={{
-        shadowColor: elevation ? '#000' : undefined,
-        shadowOffset: elevation
-          ? {
-              width: 0,
-              height: elevation ? elevation / 2 : 0,
+    <View style={styles.container}>
+      <TouchableOpacity
+        disabled={isDisabled}
+        onPress={() => (onPress ? onPress() : null)}
+        style={{
+          shadowColor: elevation ? '#000' : undefined,
+          shadowOffset: elevation
+            ? {
+                width: 0,
+                height: elevation ? elevation / 2 : 0,
+              }
+            : undefined,
+          shadowOpacity: elevation ? 0.25 : undefined,
+          shadowRadius: elevation ? 4 : undefined,
+          elevation: elevation,
+          alignItems: 'center',
+          alignContent: 'center',
+          justifyContent: 'center',
+        }}>
+        <Svg height={height} width={width}>
+          <Defs>
+            <LinearGradient
+              id="grad"
+              x1={gradientDirections[gradientDirection].x1}
+              y1={gradientDirections[gradientDirection].y1}
+              x2={gradientDirections[gradientDirection].x2}
+              y2={gradientDirections[gradientDirection].y2}>
+              {gradientColors?.map((color, index) => (
+                <Stop
+                  key={index}
+                  offset={`${(index * 100) / (gradientColors.length - 1)}%`}
+                  stopColor={color}
+                />
+              ))}
+            </LinearGradient>
+          </Defs>
+          <Polygon
+            points={
+              tiltDirection === 'left'
+                ? `0,0 ${width - 50},0 ${width}, ${height} 50,${height}`
+                : `50,0 ${width},0 ${width - 50},${height} 0,${height}`
             }
-          : undefined,
-        shadowOpacity: elevation ? 0.25 : undefined, // figure out wrf elevation
-        shadowRadius: elevation ? 4 : undefined, // figure out wrf elevation
-        elevation: elevation,
-      }}
-      onPress={() => (onPress ? onPress() : null)}>
-      {/* Button View */}
-      <LinearGradient
-        start={
-          gradientDirection
-            ? gradientStartDirections[gradientDirection]
-            : undefined
-        }
-        end={
-          gradientDirection
-            ? gradientEndDirections[gradientDirection]
-            : undefined
-        }
-        useAngle={
-          gradientDirection === 'left-diagonal' ||
-          gradientDirection === 'right-diagonal'
-            ? true
-            : false
-        }
-        angle={
-          gradientDirection
-            ? gradientDirection === 'left-diagonal'
-              ? 45
-              : 135
-            : undefined
-        }
-        angleCenter={gradientDirection ? {x: 0.5, y: 0.5} : undefined}
-        colors={gradientColors ? gradientColors : ['transparent']}
-        style={[
-          styles.parallelogram,
-          {
-            width,
-            height,
-            borderColor,
-            borderWidth,
-            backgroundColor,
-            transform: [
-              {
-                skewX: skewType === 'left' ? `${skew}deg` : `-${skew}deg`,
-              },
-            ],
-          },
-        ]}>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            alignSelf: 'center',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transform: [
-              {
-                skewX: skewType === 'left' ? `-${skew}deg` : `${skew}deg`,
-              },
-            ],
-          }}>
+            fill={gradientColors ? 'url(#grad)' : backgroundColor}
+            strokeWidth={borderWidth}
+            stroke={borderColor}
+          />
+        </Svg>
+        <View style={[styles.buttonTitleContainer]}>
           {/* Prefix Icon */}
           {prefixIcon ? (
             <Image
@@ -167,15 +140,33 @@ function WOIParallelogramButton(props: WOIParallelogramButtonnProps) {
             />
           ) : null}
         </View>
-      </LinearGradient>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  parallelogram: {
-    justifyContent: 'space-evenly',
+  container: {
     alignItems: 'center',
+    marginTop: 50,
+    elevation: 15,
+  },
+  buttonTitleContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 50,
+    right: 50,
+    bottom: 0,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    flexDirection: 'row',
+  },
+  buttonTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    alignSelf: 'center',
   },
   text: {
     textAlign: 'center',
