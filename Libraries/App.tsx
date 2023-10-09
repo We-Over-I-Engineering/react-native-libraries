@@ -1,10 +1,12 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 // Button Components
 import WOITextButton from './src/buttons/WOITextButton';
 import WOIParallelogramButton from './src/buttons/WOIParallelogramButton';
 import WOIIconButton from './src/buttons/WOIIconButton';
+
 function App(): JSX.Element {
   return (
     <SafeAreaView>
@@ -16,7 +18,9 @@ function App(): JSX.Element {
         <WOITextButton
           height={60}
           width={240}
-          borderRadius={16}
+          borderRadius={30}
+          borderWidth={3}
+          borderColor="black"
           text="Text Button"
           fontColor="#FFFFFF"
           fontSize={18}
@@ -26,14 +30,15 @@ function App(): JSX.Element {
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
           onPress={() => console.log('text button clicked')}
           isDisabled={false}
-          backgroundColor="blue"
+          backgroundColor="lightblue"
           elevation={10}
+          // gradientColors={['pink', 'purple', 'blue']}
         />
-        <View style={{marginVertical: 16}} />
         {/* Parallelogram Button Component */}
+
         <WOIParallelogramButton
           height={60}
-          width={300}
+          width={350}
           backgroundColor="#FF618B"
           text="Parallelogram Button"
           fontColor="#FFFFFF"
@@ -44,13 +49,14 @@ function App(): JSX.Element {
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
           onPress={() => console.log('parallelogram button clicked')}
           isDisabled={false}
-          skew="25"
-          skewType="right"
-          elevation={10}
+          tiltDirection="left"
+          elevation={20}
           gradientColors={['pink', 'purple', 'blue']}
+          gradientDirection="bottom"
         />
+
         <View style={{marginVertical: 16}} />
-        {/* Icon Button Component */}
+
         <WOIIconButton
           size={50}
           backgroundColor="pink"
@@ -80,6 +86,49 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontWeight: '600',
     margin: 32,
+  },
+
+  parallelogram: {
+    width: 150,
+    height: 100,
+  },
+  parallelogramInner: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    backgroundColor: 'transparent',
+    width: 150,
+    height: 100,
+  },
+  parallelogramRight: {
+    top: 0,
+    right: -50,
+    position: 'absolute',
+    transform: [{rotate: '180deg'}],
+    // minHeight: 20,
+  },
+  parallelogramLeft: {
+    top: 0,
+    left: -50,
+    position: 'absolute',
+  },
+
+  triangle: {
+    width: 0,
+    // height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 50,
+    borderRightWidth: 50,
+    borderBottomWidth: 100,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: 'pink',
+    minHeight: 20,
+  },
+
+  triangleDown: {
+    transform: [{rotate: '180deg'}],
   },
 });
 
