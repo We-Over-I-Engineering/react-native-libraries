@@ -16,7 +16,7 @@ v18.17.1
 ## Installation
 
 ```sh
-$ npm install woi-react-native-components react-native-linear-gradient
+$ npm install woi-react-native-components react-native-linear-gradient react-native-svg
 ```
 
 ## Documentation

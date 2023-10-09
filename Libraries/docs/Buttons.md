@@ -169,7 +169,7 @@ const parallelogramButtonWidget = () => {
     borderRadius={20}
     gradientColors={['purple', 'yellow']}
     gradientDirection="left"
-    text="WOI Parallelo Button"
+    text="WOI Parallelogram Button"
     fontColor="#ffffff"
     fontSize={16}
     fontWeight={400}
