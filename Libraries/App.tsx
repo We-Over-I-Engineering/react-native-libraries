@@ -1,6 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 // Button Components
 import WOITextButton from './src/buttons/WOITextButton';
@@ -32,7 +31,6 @@ function App(): JSX.Element {
           isDisabled={false}
           backgroundColor="lightblue"
           elevation={10}
-          // gradientColors={['pink', 'purple', 'blue']}
         />
         {/* Parallelogram Button Component */}
 
@@ -56,7 +54,7 @@ function App(): JSX.Element {
         />
 
         <View style={{marginVertical: 16}} />
-
+        {/* Icon Button Component */}
         <WOIIconButton
           size={50}
           backgroundColor="pink"
@@ -86,49 +84,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontWeight: '600',
     margin: 32,
-  },
-
-  parallelogram: {
-    width: 150,
-    height: 100,
-  },
-  parallelogramInner: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    backgroundColor: 'transparent',
-    width: 150,
-    height: 100,
-  },
-  parallelogramRight: {
-    top: 0,
-    right: -50,
-    position: 'absolute',
-    transform: [{rotate: '180deg'}],
-    // minHeight: 20,
-  },
-  parallelogramLeft: {
-    top: 0,
-    left: -50,
-    position: 'absolute',
-  },
-
-  triangle: {
-    width: 0,
-    // height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 50,
-    borderRightWidth: 50,
-    borderBottomWidth: 100,
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: 'pink',
-    minHeight: 20,
-  },
-
-  triangleDown: {
-    transform: [{rotate: '180deg'}],
   },
 });
 

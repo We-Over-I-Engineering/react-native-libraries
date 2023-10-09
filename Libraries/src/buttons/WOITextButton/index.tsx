@@ -70,8 +70,6 @@ function WOITextButton(props: WOITextButtonProps) {
       disabled={isDisabled}
       style={{
         backgroundColor,
-        // borderColor,
-        // borderWidth,
         borderRadius: borderRadius ? borderRadius : 0,
         shadowColor: elevation ? '#000' : undefined,
         shadowOffset: elevation
@@ -123,16 +121,6 @@ function WOITextButton(props: WOITextButtonProps) {
             borderColor,
             borderWidth,
             borderRadius: borderRadius ? borderRadius : 0,
-            // shadowColor: elevation ? '#000' : undefined,
-            // shadowOffset: elevation
-            //   ? {
-            //       width: 0,
-            //       height: elevation ? elevation / 2 : 0,
-            //     }
-            //   : undefined,
-            // shadowOpacity: elevation ? 0.25 : undefined, // figure out wrf elevation
-            // shadowRadius: elevation ? 4 : undefined, // figure out wrf elevation
-            // elevation: elevation,
           },
         ]}>
         <View
