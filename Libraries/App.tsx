@@ -5,6 +5,7 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import WOITextButton from './src/buttons/WOITextButton';
 import WOIParallelogramButton from './src/buttons/WOIParallelogramButton';
 import WOIIconButton from './src/buttons/WOIIconButton';
+
 function App(): JSX.Element {
   return (
     <SafeAreaView>
@@ -16,7 +17,9 @@ function App(): JSX.Element {
         <WOITextButton
           height={60}
           width={240}
-          borderRadius={16}
+          borderRadius={30}
+          borderWidth={3}
+          borderColor="black"
           text="Text Button"
           fontColor="#FFFFFF"
           fontSize={18}
@@ -26,14 +29,14 @@ function App(): JSX.Element {
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
           onPress={() => console.log('text button clicked')}
           isDisabled={false}
-          backgroundColor="blue"
+          backgroundColor="lightblue"
           elevation={10}
         />
-        <View style={{marginVertical: 16}} />
         {/* Parallelogram Button Component */}
+
         <WOIParallelogramButton
           height={60}
-          width={300}
+          width={350}
           backgroundColor="#FF618B"
           text="Parallelogram Button"
           fontColor="#FFFFFF"
@@ -44,11 +47,12 @@ function App(): JSX.Element {
           suffixIcon="https://images.unsplash.com/photo-1526045612212-70caf35c14df"
           onPress={() => console.log('parallelogram button clicked')}
           isDisabled={false}
-          skew="25"
-          skewType="right"
-          elevation={10}
+          tiltDirection="left"
+          elevation={20}
           gradientColors={['pink', 'purple', 'blue']}
+          gradientDirection="bottom"
         />
+
         <View style={{marginVertical: 16}} />
         {/* Icon Button Component */}
         <WOIIconButton

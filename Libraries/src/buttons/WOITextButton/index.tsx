@@ -70,6 +70,7 @@ function WOITextButton(props: WOITextButtonProps) {
       disabled={isDisabled}
       style={{
         backgroundColor,
+        borderRadius: borderRadius ? borderRadius : 0,
         shadowColor: elevation ? '#000' : undefined,
         shadowOffset: elevation
           ? {
@@ -108,7 +109,9 @@ function WOITextButton(props: WOITextButtonProps) {
             : undefined
         }
         angleCenter={gradientDirection ? {x: 0.5, y: 0.5} : undefined}
-        colors={gradientColors ? gradientColors : ['transparent']}
+        colors={
+          gradientColors ? gradientColors : ['transparent', 'transparent']
+        }
         style={[
           styles.button,
           {
