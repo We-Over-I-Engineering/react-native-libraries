@@ -1,7 +1,7 @@
 import React from 'react';
 interface WOIParallelogramButtonnProps {
-    width?: number;
-    height?: number;
+    width: number;
+    height: number;
     backgroundColor?: string;
     borderColor?: string;
     borderWidth?: number;
@@ -20,8 +20,7 @@ interface WOIParallelogramButtonnProps {
     isDisabled?: boolean;
     isLoading?: boolean;
     elevation?: number;
-    skew?: string;
-    skewType?: 'left' | 'right';
+    tiltDirection?: 'left' | 'right';
 }
-declare function WOIParallelogramButton(props: WOIParallelogramButtonnProps): React.JSX.Element;
+declare const WOIParallelogramButton: (props: WOIParallelogramButtonnProps) => React.JSX.Element;
 export default WOIParallelogramButton;

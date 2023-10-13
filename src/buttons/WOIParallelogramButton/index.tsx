@@ -5,8 +5,8 @@ import {gradientDirections} from '../../utils/gradients';
 
 interface WOIParallelogramButtonnProps {
   //button container style props
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
@@ -87,10 +87,26 @@ const WOIParallelogramButton = (props: WOIParallelogramButtonnProps) => {
           <Defs>
             <LinearGradient
               id="grad"
-              x1={gradientDirections[gradientDirection].x1}
-              y1={gradientDirections[gradientDirection].y1}
-              x2={gradientDirections[gradientDirection].x2}
-              y2={gradientDirections[gradientDirection].y2}>
+              x1={
+                gradientDirection
+                  ? gradientDirections[gradientDirection].x1
+                  : undefined
+              }
+              y1={
+                gradientDirection
+                  ? gradientDirections[gradientDirection].y1
+                  : undefined
+              }
+              x2={
+                gradientDirection
+                  ? gradientDirections[gradientDirection].x2
+                  : undefined
+              }
+              y2={
+                gradientDirection
+                  ? gradientDirections[gradientDirection].y2
+                  : undefined
+              }>
               {gradientColors?.map((color, index) => (
                 <Stop
                   key={index}
@@ -148,7 +164,6 @@ const WOIParallelogramButton = (props: WOIParallelogramButtonnProps) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginTop: 50,
     elevation: 15,
   },
   buttonTitleContainer: {

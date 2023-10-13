@@ -197,21 +197,19 @@ const parallelogramButtonWidget = () => {
 
 WOI CheckBox component accepts the following props:
 
-
 | Props                   | Type     |
 | ----------------------- | -------- |
-| size                    | Number   |
+| activeBackgroundColor   | String   |
+| activeBorderColor       | String   |
 | borderRadius            | Number   |
 | borderWidth             | Number   |
-| activeBorderColor       | String   |
-| inActiveBorderColor     | String   |
-| activeBackgroundColor   | String   |
-| inActiveBackgroundColor | String   |
 | icon                    | String   |
 | iconSize                | Number   |
+| inActiveBackgroundColor | String   |
+| inActiveBorderColor     | String   |
 | isChecked               | Boolean  |
 | onPress                 | Function |
-
+| size                    | Number   |
 
 ### **Checkbox Usage**
 
@@ -224,10 +222,10 @@ const WOICheckBoxWidget = () => {
     borderRadius={8}
     borderWidth={3}
     activeBorderColor="#33B8FF"
-    inActiveBorderColor ="#D3D3D3"
+    inActiveBorderColor="#D3D3D3"
     activeBackgroundColor="#FFFFFF"
-    inActiveBackgroundColor= "#FFFFFF"
-    icon= "https://cdn-icons-png.flaticon.com/512/3106/3106690.png"
+    inActiveBackgroundColor="#FFFFFF"
+    icon="https://cdn-icons-png.flaticon.com/512/3106/3106690.png"
     iconSize={36}
     isChecked={false}
   />;
@@ -238,18 +236,16 @@ const WOICheckBoxWidget = () => {
 
 WOI Radio Button component accepts the following props:
 
-
 | Props               | Type     |
 | ------------------- | -------- |
-| size                | Number   |
-| borderWidth         | Number   |
 | activeBorderColor   | String   |
-| inActiveBorderColor | String   |
 | activeColor         | String   |
-| inActiveColor       | String   |
+| borderWidth         | Number   |
+| fillSize            | Number   |
+| inActiveBorderColor | String   |
 | isSelected          | Boolean  |
 | onPress             | Function |
-
+| size                | Number   |
 
 ### **Radio Button Usage**
 
@@ -260,7 +256,7 @@ const WOIRadioButtonWidget = () => {
   <WOIRadioButton
     size={24}
     activeBorderColor="#33B8FF"
-    inActiveBorderColor= "#D3D3D3"
+    inActiveBorderColor="#D3D3D3"
     borderWidth={2}
     activeColor="#33B8FF"
     inActiveColor="#D3D3D3"
@@ -273,18 +269,27 @@ const WOIRadioButtonWidget = () => {
 
 WOI Switch Button component accepts the following props:
 
-
-| Props               | Type     |
-| ------------------- | -------- |
-| size                | Number   |
-| borderWidth         | Number   |
-| activeBorderColor   | String   |
-| inActiveBorderColor | String   |
-| activeColor         | String   |
-| inActiveColor       | String   |
-| isSelected          | Boolean  |
-| onPress             | Function |
-
+| Props              | Type     |
+| ------------------ | -------- |
+| isActive           | Boolean  |
+| onPress            | Function |
+| padding            | Number   |
+| thumbActiveColor   | String   |
+| thumbActiveIcon    | String   |
+| thumbBorderColor   | String   |
+| thumbBorderRadius  | Number   |
+| thumbBorderWidth   | Number   |
+| thumbIconSize      | Number   |
+| thumbInActiveColor | String   |
+| thumbInActiveIcon  | String   |
+| thumbSize          | Number   |
+| trackActiveColor   | String   |
+| trackBorderColor   | String   |
+| trackBorderRadius  | Number   |
+| trackBorderWidth   | Number   |
+| trackHeight        | Number   |
+| trackInActiveColor | String   |
+| trackWidth         | Number   |
 
 ### **Switch Button Usage**
 
