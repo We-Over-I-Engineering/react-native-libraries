@@ -8,6 +8,7 @@ import WOIIconButton from './src/buttons/WOIIconButton';
 import WOICheckBox from './src/checkbox/WOICheckBox';
 import WOIRadioButton from './src/radiobutton/WOIRadioButton';
 import WOISwitchButton from './src/switch/WOISwitchButton';
+import WOITextField from './src/textfield/WOITextfield';
 
 function App(): JSX.Element {
   const [toggle, setToggle] = useState(false);
@@ -116,6 +117,24 @@ function App(): JSX.Element {
           onPress={() => {
             setToggle(!toggle);
           }}
+        />
+
+        {/*Radio Button Component */}
+        <WOITextField
+          width={345}
+          height={56}
+          borderRadius={6}
+          borderWidth={1}
+          labelText="Label Text"
+          supportingText="Supporting Text"
+          leftIcon="https://cdn-icons-png.flaticon.com/512/1400/1400310.png"
+          rightIcon="https://cdn-icons-png.flaticon.com/512/4445/4445942.png"
+          leftIconSize={30}
+          rightIconSize={30}
+          leftIconOnPress={() => console.log('hello from left button')}
+          rightIconOnPress={() => console.log('hello from right button')}
+          text=""
+          placeholder="Placeholder text"
         />
       </View>
     </SafeAreaView>
